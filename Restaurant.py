@@ -15,7 +15,7 @@ class restaurant:
         Here, file_path of log file is given which is read with pandas library using read_csv() method.
         The data in the file is then saved in DataFrame named : self.restaurant_data
         
-        Here, self._check_duplicate_data() function is also run so, to check duplicacy in our log records.
+        Here, self._check_duplicate_data() function is also called so, to check duplicacy in our log records.
         """
 
         self.restaurant_data = pandas.read_csv(file_path)
@@ -31,7 +31,7 @@ class restaurant:
             raise TypeError('Logs file contains Duplicate Records')
             
     
-    #This Fuction print the top 3 MENU ITEMS ID's 
+    #This class method returns the list of top 3 MENU ITEMS ID's 
     def top3_menuItems(self):
         result = self.restaurant_data['foodmenu_id'].value_counts()[:3].index.tolist()
         return result
